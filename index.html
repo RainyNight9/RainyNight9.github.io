@@ -1,504 +1,304 @@
-<!DOCTYPE html>
-<html class=''>
+<!DOCTYPE HTML>
+<html class="no-js">
 <head>
-    <script src='https://production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
-    <script src='https://production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
-    <script src='https://production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+    <title>雨夜丨张斌的个人博客</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/lover.png"/>
+    <link rel="mask-icon" type="" href="static/images/lover.png" color="#111"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content=""/>
 
-    <meta charset='UTF-8'>
-    <meta name="robots" content="noindex">
-    <link rel="shortcut icon" type="image/x-icon" href="img/lover.png"/>
-    <link rel="mask-icon" type=""
-          href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
-          color="#111"/>
-    <link rel="canonical" href="https://codepen.io/noeldelgado/pen/PZJGLx"/>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
-
-
-    <style class="cp-pen-styles">
-        * {
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            font-size: 13px;
-            font-family: 'Source Sans Pro', sans-serif;
-            line-height: 1.618;
-            font-weight: 400;
-        }
-
-        body {
-            background-color: #2f3238;
-            color: #f5f5f5;
-        }
-
-        a {
-            color: #1abc89;
-        }
-
-        a:hover {
-            opacity: .8;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: rgba(245, 245, 245, 0.5);
-        }
-
-        .small {
-            font-size: 1rem;
-            margin-top: 1em;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        header {
-            text-align: center;
-            padding-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 2.6rem;
-            line-height: 1.2em;
-            padding-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        circle {
-            -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-            -webkit-transform: scale(0);
-            transform: scale(0);
-            -webkit-transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        text {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            text-anchor: middle;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .svg-text {
-            fill: #545a64;
-        }
-
-        .svg-masked-text {
-            fill: white;
-        }
-
-        image {
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-            -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-            -webkit-transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .items {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-        }
-
-        .item {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            width: 300px;
-            height: 200px;
-            margin: 5px;
-            cursor: pointer;
-            background-color: #3b3e46;
-            border-radius: 2px;
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02), inset 0 0px 0px 1px rgba(0, 0, 0, 0.07);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-
-        .item:hover circle,
-        .item:hover image {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-
-        button {
-            width: 12px;
-            height: 12px;
-            border: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-            border-radius: 1px;
-        }
-
-        button.dark {
-            background-color: #2f3238;
-        }
-
-        button.light {
-            /*background-color: #f9f9f9;*/
-            background-color: #e4393c;
-        }
-
-        .options {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        .options button {
-            margin-left: .5rem;
-        }
-
-        .light {
-            /*background-color: #f9f9f9;*/
-            background-color: #e4393c;
-            color: #1a1a1a;
-        }
-
-        .light p {
-            color: rgba(26, 26, 26, 0.5);
-        }
-
-        .light .item {
-            background: #f5f5f5;
-        }
-
-        .light .svg-text {
-            fill: rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <!-- All in One SEO Pack 2.4.2 by Michael Torbert of Semper Fi Web Design[50,85] -->
+    <meta name="description" content="专注于互联网领域web前端技术，js扩展技术的分享"/>
+    <link rel="canonical" href="http://www.9abj.com/"/>
+    <!-- /all in one seo pack -->
+    <link rel='dns-prefetch' href='//s.w.org'/>
+    <link rel='stylesheet' id='theme-my-login-css'
+          href='http://www.huqi.tk/wp-content/plugins/theme-my-login/theme-my-login.css?ver=6.4.9' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='crayon-css'
+          href='http://www.huqi.tk/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='djd-site-post-styles-css'
+          href='http://www.huqi.tk/wp-content/plugins/djd-site-post/css/display.css?ver=4.7.7' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='animate-css'
+          href='http://www.huqi.tk/wp-content/themes/Kratos/css/animate.min.css?ver=3.5.1' type='text/css' media='all'/>
+    <link rel='stylesheet' id='awesome-css' href='static/font/iconfont.css' type='text/css' media='all'/>
+    <link rel='stylesheet' id='bootstrap-css'
+          href='http://www.huqi.tk/wp-content/themes/Kratos/css/bootstrap.min.css?ver=3.3.7' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='superfish-css'
+          href='http://www.huqi.tk/wp-content/themes/Kratos/css/superfish.min.css?ver=r7' type='text/css' media='all'/>
+    <link rel='stylesheet' id='layer-css' href='http://www.huqi.tk/wp-content/themes/Kratos/css/layer.min.css?ver=2.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='kratos-css' href='http://www.huqi.tk/wp-content/themes/Kratos/style.css?ver=2.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='kratos-diy-css'
+          href='http://www.huqi.tk/wp-content/themes/Kratos/css/kratos.diy.css?ver=2.5' type='text/css' media='all'/>
+    <link rel='stylesheet' id='tablepress-default-css'
+          href='http://www.huqi.tk/wp-content/plugins/tablepress/css/default.min.css?ver=1.8.1' type='text/css'
+          media='all'/>
+    <script type='text/javascript'
+            src='http://www.huqi.tk/wp-content/themes/Kratos/js/jquery.min.js?ver=2.1.4'></script>
 </head>
-<body>
-<div class='container'>
-    <header>
-    </header>
-    <main>
-        <div class='items'>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-0'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        X-rays
-                    </text>
-                    <g clip-path='url(#clip-0)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                            xlink:href='img/1.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            X-rays
-                        </text>
-                    </g>
-                </svg>
-            </div>
-
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-1'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        Worms
-                    </text>
-                    <g clip-path='url(#clip-1)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/2.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            Worms
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-2'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        Aurora
-                    </text>
-                    <g clip-path='url(#clip-2)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/3.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            Aurora
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-3'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        Angus
-                    </text>
-                    <g clip-path='url(#clip-3)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/4.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            Angus
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-4'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        Huitzi
-                    </text>
-                    <g clip-path='url(#clip-4)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/5.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            Huitzi
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-5'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        Dalí
-                    </text>
-                    <g clip-path='url(#clip-5)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/6.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            Dalí
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-6'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        The Bride
-                    </text>
-                    <g clip-path='url(#clip-6)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/7.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            The Bride
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-7'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        The Man
-                    </text>
-                    <g clip-path='url(#clip-7)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/8.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            The Man
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-8'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        D
-                    </text>
-                    <g clip-path='url(#clip-8)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/9.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            D
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-9'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        V
-                    </text>
-                    <g clip-path='url(#clip-9)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/10.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            V
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-10'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        V II
-                    </text>
-                    <g clip-path='url(#clip-10)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/11.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            V II
-                        </text>
-                    </g>
-                </svg>
-            </div>
-            <div class='item'>
-                <svg preserveAspectRatio='xMidYMid slice' viewBox='0 0 300 200'>
-                    <defs>
-                        <clipPath id='clip-11'>
-                            <circle cx='0' cy='0' fill='#000' r='150px'></circle>
-                        </clipPath>
-                    </defs>
-                    <text class='svg-text' dy='.3em' x='50%' y='50%'>
-                        V III
-                    </text>
-                    <g clip-path='url(#clip-11)'>
-                        <image height='100%' preserveAspectRatio='xMinYMin slice' width='100%'
-                               xlink:href='img/12.jpg'></image>
-                        <text class='svg-masked-text' dy='.3em' x='50%' y='50%'>
-                            V III
-                        </text>
-                    </g>
-                </svg>
+<body data-spy="scroll" data-target=".scrollspy">
+<div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+                        <h1 id="kratos-logo"><a href="#">雨夜</a></h1>
+                        <nav id="kratos-menu-wrap" class="menu-%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2-container">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                <li class="current-menu-item"><a href="#">Home</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Navigation</a></li>
+                                <li><a href="https://github.com/RainyNight9">Github</a></li>
+                                <li><a href="">好文转载</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">计算机技术</a>
+                                        </li>
+                                        <li><a href="#">投资理财</a></li>
+                                        <li><a href="#">摄影与拍照技巧</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">投稿</a></li>
+                                <li><a href="#">Log In</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start">
+            <div class="kratos-overlay"></div>
+            <div class="kratos-cover kratos-topimg text-center"
+                 style="background-image: url(static/images/rain-bj.jpg)">
+                <div class="desc animate-box">
+                    <h2>张斌</h2>
+                    <span>为今天工作，为明天投资，为未来孵化一些东西！</span>
+                    <span><b class="btn btn-star" id="top-Start">探索更多</b></span>
+                </div>
             </div>
         </div>
-    </main>
+        <div id="kratos-blog" class="kratos-page-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>BLOG</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 animate-box">
+                        <div class="kratos-post ">
+                            <div class="kratos-post-image">
+                                <div class="kratos-overlay"></div>
+                                <div class="kratos-category">
+                                    <a href=""><i class="iconfont icon-like"></i> 2</a>
+                                </div>
+                                <a href="">
+                                    <img src="http://www.huqi.tk/&quot;/wp-content/uploads&quot;/2017/10/Popo截图20171021134631.png"/>
+                                </a>
+                            </div>
+                            <div class="kratos-post-text">
+                                <a href=""><h3 class="text-center">兼容性问题与浏览器的内核及渲染模式</h3></a>
+                                <p>目前市面上流行的浏览器有多种，这些浏览器在处理一个相同的页面时，表现或行为有时会有差异。这种差异可能很小...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 animate-box">
+                        <div class="kratos-post ">
+                            <div class="kratos-post-image">
+                                <div class="kratos-overlay"></div>
+                                <div class="kratos-category">
+                                    <a href=""><i class="iconfont icon-like"></i> 4</a>
+                                </div>
+                                <a href="">
+                                    <img src="http://www.huqi.tk/&quot;/wp-content/uploads&quot;/2017/10/TIM截图20171014205944.png"/>
+                                </a>
+                            </div>
+                            <div class="kratos-post-text">
+                                <a href=""><h3 class="text-center">Retina屏下的1px边框的实现</h3></a>
+                                <p>Retina下的真1px的东东现在常见的实现无非就是</p>
+                                <p>1.图片; 2.阴影;3.缩放</p>
+                                <p>每种都有各自的用处...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 animate-box">
+                        <div class="kratos-post ">
+                            <div class="kratos-post-image">
+                                <div class="kratos-overlay"></div>
+                                <div class="kratos-category"><a href=""><i class="iconfont icon-like"></i> 4</a>
+                                </div>
+                                <a href=""><img src="http://www.huqi.tk/wp-content/themes/Kratos/images/default.jpg"/></a></div>
+                            <div class="kratos-post-text">
+                                <a href=""><h3 class="text-center">更新浏览器缓存</h3></a>
+                                <p>动态构建iframe 的好处在于，想清啥就清啥，清的不一定是固定的资源，总会有需要清滴的。IE还有可以让要清的js不用运行，webkit的好像...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                        <a href="#" class="btn btn-primary view-more-1">查看更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="kratos-blog" class="kratos-page-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>About</h3>
+                        <p>关于我</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                        <a href="#" class="btn btn-primary view-more-1">查看更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="kratos-blog" class="kratos-page-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>北京</h3>
+                        <p>梦想的发源地__喜欢上一个城市更多的是喜欢上她给你的感觉：梦想，未知，向上的力量</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                        <a href="#" class="btn btn-primary view-more-1">查看更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="footer">
+                <div class="cd-tool visible-lg text-center">
+                    <a class="cd-top cd-is-visible cd-fade-out"><span class="iconfont icon-huidaodingduan"></span></a>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                            <p class="kratos-social-icons">
+                                <a target="_blank" rel="nofollow" href="https://weibo.com/3181724615/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">
+                                    <i class="iconfont icon-weibo"></i></a>
+                                <a target="_blank" rel="nofollow" href="https://github.com/RainyNight9">
+                                    <i class="iconfont icon-github"></i></a></p>
+                            <p>Copyright 2017 <a href="#">雨夜</a>. All Rights Reserved.<br>
+
+                                </a></p>
+                            <p>
+                                <script>var _hmt = _hmt || [];
+                                (function () {
+                                    var hm = document.createElement("script");
+                                    hm.src = "https://hm.baidu.com/hm.js?07adb5fc2368cb7e0b01a72b61bd12e7";
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(hm, s);
+                                })();
+
+
+                                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                                document.write(unescape("%3Cspan id='cnzz_stat_icon_1261942682'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261942682%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                                </script>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </div>
-
-<div class='options'>
-    <button class='dark'></button>
-    <button class='light'></button>
-</div>
-
-
-<script src='https://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-<script>
-
-    var items = [], point = document.querySelector('svg').createSVGPoint();
-
-    function getCoordinates(e, svg) {
-        point.x = e.clientX;
-        point.y = e.clientY;
-        return point.matrixTransform(svg.getScreenCTM().inverse());
+<!-- begin visitor maps  -->
+<script type="text/javascript">
+    //<![CDATA[
+    function wo_map_console(url) {
+        window.open(url, "wo_map_console", "height=650,width=800,toolbar=no,statusbar=no,scrollbars=yes").focus();
     }
-
-    function changeColor(e) {
-        document.body.className = e.currentTarget.className;
-    }
-
-    function Item(config) {
-        Object.keys(config).forEach(function (item) {
-            this[item] = config[item];
-        }, this);
-        this.el.addEventListener('mousemove', this.mouseMoveHandler.bind(this));
-        this.el.addEventListener('touchmove', this.touchMoveHandler.bind(this));
-    }
-
-    Item.prototype = {
-        update: function update(c) {
-            this.clip.setAttribute('cx', c.x);
-            this.clip.setAttribute('cy', c.y);
-        },
-        mouseMoveHandler: function mouseMoveHandler(e) {
-            this.update(getCoordinates(e, this.svg));
-        },
-        touchMoveHandler: function touchMoveHandler(e) {
-            e.preventDefault();
-            var touch = e.targetTouches[0];
-            if (touch) return this.update(getCoordinates(touch, this.svg));
-        }
+    //]]>
+</script>
+<!-- end visitor maps -->
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var CrayonSyntaxSettings = {
+        "version": "_2.7.2_beta",
+        "is_admin": "0",
+        "ajaxurl": "http:\/\/www.huqi.tk\/wp-admin\/admin-ajax.php",
+        "prefix": "crayon-",
+        "setting": "crayon-setting",
+        "selected": "crayon-setting-selected",
+        "changed": "crayon-setting-changed",
+        "special": "crayon-setting-special",
+        "orig_value": "data-orig-value",
+        "debug": ""
     };
-
-    [].slice.call(document.querySelectorAll('.item'), 0).forEach(function (item, index) {
-        items.push(new Item({
-            el: item,
-            svg: item.querySelector('svg'),
-            clip: document.querySelector('#clip-' + index + ' circle'),
-        }));
-    });
-
-    [].slice.call(document.querySelectorAll('button'), 0).forEach(function (button) {
-        button.addEventListener('click', changeColor);
-    });
-    //# sourceURL=pen.js
+    var CrayonSyntaxStrings = {
+        "copy": "\u4f7f\u7528 %s \u590d\u5236\uff0c\u4f7f\u7528 %s \u7c98\u8d34\u3002",
+        "minimize": "\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta'></script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/plugins/djd-site-post/js/display.js?ver=4.7.7'></script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/plugins/djd-site-post/js/script.js?ver=4.7.7'></script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/themes/Kratos/js/jquery.easing.min.js?ver=1.3.0'></script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/themes/Kratos/js/jquery.qrcode.min.js?ver=2.5'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/layer.min.js?ver=3.0.3'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/modernizr.min.js?ver=2.6.2'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/bootstrap.min.js?ver=3.3.7'></script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/themes/Kratos/js/jquery.waypoints.min.js?ver=4.0.0'></script>
+<script type='text/javascript'
+        src='http://www.huqi.tk/wp-content/themes/Kratos/js/jquery.stellar.min.js?ver=0.6.2'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/hoverIntent.min.js?ver=r7'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/superfish.js?ver=1.0.0'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/kratos.js?ver=2.5'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-content/themes/Kratos/js/kratos.diy.js?ver=2.5'></script>
+<script type='text/javascript' src='http://www.huqi.tk/wp-includes/js/wp-embed.min.js?ver=4.7.7'></script>
+<script type="text/javascript">
+    if ($("#main").height() > $("#sidebar").height()) {
+        var footerHeight = 0;
+        if ($('#page-footer').length > 0) {
+            footerHeight = $('#page-footer').outerHeight(true);
+        }
+        $('#sidebar').affix({
+            offset: {
+                top: $('#sidebar').offset().top - 30,
+                bottom: $('#footer').outerHeight(true) + footerHeight + 6
+            }
+        });
+    }
 </script>
 </body>
 </html>
