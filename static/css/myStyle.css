@@ -1,0 +1,11 @@
+.daodan{
+    -webkit-animation-name:ao-ease;
+    -webkit-animation-duration:15s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:ease;
+}
+@-webkit-keyframes ao-ease {
+    0%    {-webkit-transform: matrix3d(1, 0, 0, 0.002, 0, 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 1);}
+    50%   {-webkit-transform: matrix3d(1, 0, 0, -0.002, 0, 1, 0, 0,  0, 0, 1, 0,  0, 0, 0, 1); }
+    100%  {-webkit-transform: matrix3d(1, 0, 0, 0.002, 0, 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 1);}
+}
