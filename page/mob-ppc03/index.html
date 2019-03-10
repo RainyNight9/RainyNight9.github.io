@@ -16,11 +16,7 @@
 		<link href="css/new-common.css" rel="stylesheet" type="text/css">
 		<link href="css/index.css" rel="stylesheet" type="text/css">
 
-        <script type="text/javascript" src="//reslib.01zhuanche.com/js/station/c.vconsole.min.js"></script>
-        <script>
-            window.vConsole = new window.VConsole();
-        </script>
-        <script>
+<script>
  !function(g,d,t,e,v,n,s){if(g.gdt)return;v=g.gdt=function(){v.tk?v.tk.apply(v,arguments):v.queue.push(arguments)};v.sv='1.0';v.bt=0;v.queue=[];n=d.createElement(t);n.async=!0;n.src=e;s=d.getElementsByTagName(t)[0];s.parentNode.insertBefore(n,s);}(window,document,'script','//qzonestyle.gtimg.cn/qzone/biz/gdt/dmp/user-action/gdtevent.min.js');
  gdt('init','1107784537');
  gdt('track','PAGE_VIEW');
@@ -34,7 +30,7 @@
 	</head>
 
 	<body>
-		<input type="hidden" id="mediaSource">
+		<input type="hidden" id="mediaSource">  
 		<header>
 			<img src="images/logo.png" class="top_logo" alt="">
 		</header>
@@ -44,6 +40,8 @@
 					<canvas id="canvas" data-score='500000'></canvas>
 					<div class="btn_bg">中国平安集团旗下成员</div>
 					<div class="tip_text">*借款是否成功因人而异</div>
+					<div class="text_tip">最高额度</div>
+					<div class="num_show">￥<span id="nums">500000</span></div>
 					<div class="bg_line"></div>
 				</div>
 				<img src="images/index_bg1.png" alt=""><img src="images/index_bg2.png" alt=""><img src="images/index_bg3.jpg" alt="">
@@ -248,17 +246,6 @@
                         credit = 600000;
                     }
 
-                    //最高额度
-                    ctx.save();
-                    ctx.rotate(10 * deg0);
-                    ctx.fillStyle = '#FD7F19';
-                    ctx.font = '0.4rem Microsoft yahei';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('最高额度', 0, -30);
-                    ctx.restore();
-
-                    text(credit);
-
                     ctx.save()
                     ctx.rotate(10 * deg0); //200度
                     ctx.restore()
@@ -286,17 +273,6 @@
                     window.requestAnimFrame(drawFrame);
                 }
 
-                function text(process) {
-                    ctx.save();
-                    ctx.rotate(10 * deg0); //200度
-                    ctx.fillStyle = '#FD7F19'
-                    ctx.font = 'bold 0.58rem Microsoft yahei'
-                    ctx.textAlign = 'center'
-                    ctx.textBaseLine = 'top'
-                    ctx.fillText("￥"+ process, 0, 15)
-                    ctx.restore();
-                }
-
                 setTimeout(function() {
                     document.getElementById("canvas").style.display = "block";
                     drawFrame();
@@ -304,7 +280,25 @@
 
             }
 		</script>
+		<script>
+            var totalNum = 500000;
+            var nums = 0;
+            // 调用计时函数
+            setTimeout(timedCount(nums),50);
 
+            // 循环计时函数, 多次调用自身函数, nums为被传递的参数
+            function timedCount(nums){
+                var count = Math.round(totalNum/97);
+                nums = nums+count;
+                document.getElementById('nums').innerHTML =nums
+				// 设置条件使停止计时
+                if (nums<totalNum) {
+                    setTimeout(function(){timedCount(nums)},20);
+                }else{
+                    document.getElementById('nums').innerHTML =totalNum
+                }
+            }
+		</script>
 	</body>
 
 </html>

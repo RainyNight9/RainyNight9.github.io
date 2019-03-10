@@ -454,7 +454,7 @@
     right: 0;
     top: 0;
 }
-canvas {
+.chart canvas {
     width: 5.2rem;
     height: 2.7rem;
     position: absolute;
@@ -462,7 +462,7 @@ canvas {
     top: 0.8rem;
     z-index: 1;
 }
-.btn_bg {
+.chart .btn_bg {
     position: absolute;
     width: 4.25rem;
     height: 0.8rem;
@@ -483,14 +483,14 @@ canvas {
     background:linear-gradient(to bottom right,#ffb43f,#fc6c15);
     z-index: 2;
 }
-.tip_text {
+.chart .tip_text {
     color:#FE5501;
     position: absolute;
     bottom: 0.3rem;
     right: 0.8rem;
     font-size: 0.22rem;
 }
-.bg_line {
+.chart .bg_line {
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 100%;
@@ -499,4 +499,19 @@ canvas {
     left: 0.9rem;
     top: 1.3rem;
     z-index: 1;
+}
+.chart .text_tip {
+    position: absolute;
+    color: #FD7F19;
+    font-size: 0.35rem;
+    left: 1.6rem;
+    top: 1.8rem;
+}
+.chart .num_show {
+    position: absolute;
+    color: #FD7F19;
+    font-size: 0.5rem;
+    font-weight: bold;
+    top: 2.4rem;
+    left: 1.1rem;
 }
